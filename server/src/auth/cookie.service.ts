@@ -12,7 +12,7 @@ export class CookieService {
       maxAge: CookieService.tokenAge,
     });
   }
-  removeToken(res: Response, token: string) {
+  removeToken(res: Response) {
     res.clearCookie(CookieService.tokenKey);
   }
 }

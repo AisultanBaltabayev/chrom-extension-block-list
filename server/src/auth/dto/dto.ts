@@ -27,8 +27,15 @@ export class GetSessionInfoDto {
     example: '1',
   })
   id: number;
+
   @ApiProperty({
     example: 'example@gmail.com',
   })
   email: string;
+
+  @ApiProperty()
+  iat: number;
+
+  @ApiProperty()
+  exp: number;
 }
