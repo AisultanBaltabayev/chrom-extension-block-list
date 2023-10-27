@@ -26,7 +26,7 @@ export class SignInBodyDto {
   password: string;
 }
 
-export class GetSessionInfoDto {
+export class SessionInfoDto {
   @ApiProperty({
     example: '1',
   })

@@ -8,7 +8,7 @@ import {
   Res,
   UseGuards,
 } from '@nestjs/common';
-import { GetSessionInfoDto, SignInBodyDto, SignUpBodyDto } from './dto/dto';
+import { SessionInfoDto, SignInBodyDto, SignUpBodyDto } from './dto/dto';
 import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
 import { AuthService } from './auth.service';
 import { Response } from 'express';
@@ -64,10 +64,10 @@ export class AuthController {
 
   @Get('session')
   @ApiOkResponse({
-    type: GetSessionInfoDto,
+    type: SessionInfoDto,
   })
   @UseGuards(AuthGuard)
-  getSessionInfo(@SessionInfo() session: GetSessionInfoDto) {
+  getSessionInfo(@SessionInfo() session: SessionInfoDto) {
     return session;
   }
 }
