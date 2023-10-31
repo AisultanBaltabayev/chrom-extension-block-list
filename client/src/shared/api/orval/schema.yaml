@@ -1,16 +1,5 @@
 openapi: 3.0.0
 paths:
-  /:
-    get:
-      operationId: AppController_getHello
-      parameters: []
-      responses:
-        '200':
-          description: ''
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/HelloWorldDto'
   /auth/sign-up:
     post:
       operationId: AuthController_signUp
@@ -24,6 +13,8 @@ paths:
       responses:
         '201':
           description: ''
+      tags: &ref_0
+        - auth
   /auth/sign-in:
     post:
       operationId: AuthController_signIn
@@ -37,6 +28,7 @@ paths:
       responses:
         '200':
           description: ''
+      tags: *ref_0
   /auth/sign-out:
     post:
       operationId: AuthController_signOut
@@ -44,6 +36,7 @@ paths:
       responses:
         '200':
           description: ''
+      tags: *ref_0
   /auth/session:
     get:
       operationId: AuthController_getSessionInfo
@@ -55,6 +48,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/SessionInfoDto'
+      tags: *ref_0
   /account:
     get:
       operationId: AccountController_getAccount
@@ -66,6 +60,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AccountDto'
+      tags: &ref_1
+        - account
     patch:
       operationId: AccountController_pathAccount
       parameters: []
@@ -82,6 +78,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/PatchAccountDto'
+      tags: *ref_1
   /block-list:
     get:
       operationId: BlockListController_getList
@@ -98,6 +95,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BlockListDto'
+      tags: &ref_2
+        - block-list
   /block-list/item:
     post:
       operationId: BlockListController_addBlockListItem
@@ -115,6 +114,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BlockItemDto'
+      tags: *ref_2
   /block-list/item/{id}:
     delete:
       operationId: BlockListController_removeBlockItem
@@ -131,6 +131,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BlockItemDto'
+      tags: *ref_2
 info:
   title: Block list
   description: ''
@@ -140,13 +141,6 @@ tags: []
 servers: []
 components:
   schemas:
-    HelloWorldDto:
-      type: object
-      properties:
-        message:
-          type: string
-      required:
-        - message
     SignUpBodyDto:
       type: object
       properties:

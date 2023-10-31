@@ -1,31 +1,32 @@
 import { Inter } from "next/font/google";
+import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import {
   authControllerGetSessionInfo,
   authControllerSignIn,
-} from "@/shared/api/generated";
-import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+} from "@/shared/api/orval/auth/auth";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function HomePage() {
   const [loggedIn, setLoggedIn] = useState(false);
 
-  // useEffect(() => {
-  //   authControllerSignIn({
-  //     email: "example@gmail.com",
-  //     password: "pass1234",
-  //   }).then((data) => {
-  //     console.log("data: ", data);
-  //     setLoggedIn(true);
-  //   });
-  // }, []);
+  useEffect(() => {
+    if (!loggedIn) {
+      authControllerSignIn({
+        email: "example@gmail.com",
+        password: "pass1234",
+      }).then((data) => {
+        console.log("data: ", data);
+        setLoggedIn(true);
+      });
+    }
+  }, [loggedIn]);
 
   const { data } = useQuery({
     queryKey: ["session", loggedIn],
-    queryFn: () => {
-      return authControllerGetSessionInfo();
-    },
+    queryFn: () => authControllerGetSessionInfo(),
+    retry: false,
   });
 
   return (
