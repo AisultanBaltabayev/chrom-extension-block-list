@@ -10,7 +10,7 @@ import {
   UseGuards,
 } from '@nestjs/common';
 import { BlockListService } from './block-list.service';
-import { ApiCreatedResponse, ApiOkResponse } from '@nestjs/swagger';
+import { ApiCreatedResponse, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import {
   AddBlockItemDto,
   BlockItemDto,
@@ -22,6 +22,7 @@ import { SessionInfoDto } from '../auth/dto/dto';
 import { AuthGuard } from '../auth/auth.guard';
 
 @Controller('block-list')
+@ApiTags('block-list')
 @UseGuards(AuthGuard)
 export class BlockListController {
   constructor(private readonly blockListService: BlockListService) {}

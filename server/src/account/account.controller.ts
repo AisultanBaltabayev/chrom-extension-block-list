@@ -1,5 +1,5 @@
 import { Body, Controller, Get, Patch, UseGuards } from '@nestjs/common';
-import { ApiOkResponse } from '@nestjs/swagger';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { AccountDto, PatchAccountDto } from './dto/dto';
 import { AccountService } from './account.service';
 import { AuthGuard } from '../auth/auth.guard';
@@ -7,6 +7,7 @@ import { SessionInfo } from '../auth/session-info.decorator';
 import { SessionInfoDto } from '../auth/dto/dto';
 
 @Controller('account')
+@ApiTags('account')
 @UseGuards(AuthGuard)
 export class AccountController {
   constructor(private accountService: AccountService) {}
