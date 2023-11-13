@@ -1,3 +1,3 @@
-import { SignUpPage } from "@/pages/sign-up";
+import { SignUpPage } from "@/2-pages/sign-up";
 
 export default SignUpPage;
