@@ -1,41 +1,25 @@
-import { useEffect, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
-import {
-  authControllerGetSessionInfo,
-  authControllerSignIn,
-} from "@/shared/api/orval/auth/auth";
 import { UiButton } from "@/shared/ui/ui-button";
 import { UiTextField } from "@/shared/ui/ui-text-field";
 import { UiSelectField } from "@/shared/ui/ui-select-field";
 import { UiLink } from "@/shared/ui/ui-link";
 import { UiSpinner } from "@/shared/ui/ui-spinner";
-// import { UiPageSpinner } from "@/shared/ui/ui-page-spinner";
 import { UiHeader } from "@/shared/ui/ui-header";
+import { SignOutButton } from "@/features/auth";
+import { useSessionQuery } from "@/entities/session/queries";
 
 export default function HomePage() {
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  useEffect(() => {
-    if (!loggedIn) {
-      authControllerSignIn({
-        email: "example@gmail.com",
-        password: "pass1234",
-      }).then((data) => {
-        console.log("data: ", data);
-        setLoggedIn(true);
-      });
-    }
-  }, [loggedIn]);
-
-  const { data } = useQuery({
-    queryKey: ["session", loggedIn],
-    queryFn: () => authControllerGetSessionInfo(),
-    retry: false,
-  });
+  const { data } = useSessionQuery();
 
   return (
     <main className={"min-h-screen"}>
-      <UiHeader right={<div>{data?.email}</div>} />
+      <UiHeader
+        right={
+          <div>
+            {data?.email}
+            <SignOutButton />
+          </div>
+        }
+      />
 
       <UiButton variant={"primary"}>1</UiButton>
       <UiButton variant={"secondary"}>2</UiButton>

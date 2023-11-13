@@ -54,8 +54,8 @@ export const IceLogo = ({ className }: { className?: string }) => {
         gradientTransform="matrix(-.7728 .6347 -.8463 -1.0304 159.288 79.872)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset=".1" stop-color="#FFF" stop-opacity=".9" />
-        <stop offset="1" stop-color="#FCFCFC" stop-opacity="0" />
+        <stop offset=".1" stopColor="#FFF" stopOpacity=".9" />
+        <stop offset="1" stopColor="#FCFCFC" stopOpacity="0" />
       </radialGradient>
       <path
         fill="url(#notoIce0)"
@@ -69,8 +69,8 @@ export const IceLogo = ({ className }: { className?: string }) => {
         gradientTransform="matrix(.8254 .5645 -.6684 .9774 48.117 -37.996)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset=".152" stop-color="#32AFE0" stop-opacity=".9" />
-        <stop offset=".963" stop-color="#32AFE0" stop-opacity="0" />
+        <stop offset=".152" stopColor="#32AFE0" stopOpacity=".9" />
+        <stop offset=".963" stopColor="#32AFE0" stopOpacity="0" />
       </radialGradient>
       <path
         fill="url(#notoIce1)"
@@ -84,11 +84,11 @@ export const IceLogo = ({ className }: { className?: string }) => {
         gradientTransform="matrix(-.002 -1 2.0491 -.0041 -37.616 113.33)"
         gradientUnits="userSpaceOnUse"
       >
-        <stop offset=".256" stop-color="#67CCF9" stop-opacity=".9" />
-        <stop offset=".416" stop-color="#6CCDF9" stop-opacity=".674" />
-        <stop offset=".616" stop-color="#7CD1F9" stop-opacity=".392" />
-        <stop offset=".837" stop-color="#95D8F9" stop-opacity=".081" />
-        <stop offset=".895" stop-color="#9DDAF9" stop-opacity="0" />
+        <stop offset=".256" stopColor="#67CCF9" stopOpacity=".9" />
+        <stop offset=".416" stopColor="#6CCDF9" stopOpacity=".674" />
+        <stop offset=".616" stopColor="#7CD1F9" stopOpacity=".392" />
+        <stop offset=".837" stopColor="#95D8F9" stopOpacity=".081" />
+        <stop offset=".895" stopColor="#9DDAF9" stopOpacity="0" />
       </radialGradient>
       <path
         fill="url(#notoIce2)"

@@ -12,7 +12,7 @@ export function UiHeader({
   return (
     <header
       className={classNames(
-        "px-3 py-5 border-b border-b-slate-300 flex justify-between items-center",
+        "px-3 py-5 border-b border-b-slate-300 flex justify-between items-center bg-white",
         [className],
       )}
     >
