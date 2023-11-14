@@ -11,7 +11,7 @@ export function useBlockListQuery({ q }: { q?: string }) {
   return useBlockListControllerGetList(
     { q },
     {
-      query: { queryKey: blockListKey.concat([{ q }]) },
+      query: { queryKey: blockListKey.concat([{ q }]), keepPreviousData: true },
     },
   );
 }

@@ -5,17 +5,29 @@ import { AddBlockItemDtoType } from "@/6-shared/api/orval/models";
 export function useAddBlockItemForm() {
   const {
     register,
-    handleSubmit: handleFormSubmit,
+    handleSubmit: formHandleSubmit,
     watch,
+    reset: resetForm,
   } = useForm<{
     type: AddBlockItemDtoType;
     data: string;
-  }>();
+  }>({
+    defaultValues: {
+      type: AddBlockItemDtoType.Website,
+    },
+  });
 
   const addBlockItemMutation = useAddBlockItemMutation();
 
-  const handleSubmit = handleFormSubmit((data) =>
-    addBlockItemMutation.mutate({ data }),
+  const handleSubmit = formHandleSubmit((data) =>
+    addBlockItemMutation.mutate(
+      { data },
+      {
+        onSuccess: () => {
+          resetForm();
+        },
+      },
+    ),
   );
 
   const type = watch("type");
