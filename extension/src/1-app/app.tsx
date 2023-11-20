@@ -1,12 +1,12 @@
 import { AppProvider } from "@/1-app/app-provider.tsx";
-import { HomePage } from "@/2-pages/home.page.tsx";
+import { AppRouter } from "@/1-app/app-router.tsx";
 
 export function App() {
   return (
-    <>
+    <div className={"p-8"}>
       <AppProvider>
-        <HomePage />
+        <AppRouter />
       </AppProvider>
-    </>
+    </div>
   );
 }

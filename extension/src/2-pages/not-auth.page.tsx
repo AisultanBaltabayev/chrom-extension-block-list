@@ -2,20 +2,19 @@ import { UiLogo } from "@/6-shared/ui/ui-logo.tsx";
 import { UiButton } from "@/6-shared/ui/ui-button.tsx";
 import { createTab } from "@/6-shared/lib/browser.ts";
 import { ADMIN_ROUTES } from "@/6-shared/constants/constants.ts";
-import { ToggleBlockingButton } from "@/4-features/toggle-blocking";
 
-export function HomePage() {
+export function NotAuthPage() {
   return (
     <div className={"p-8 flex flex-col gap-3"}>
       <UiLogo />
-      <ToggleBlockingButton />
+      <h2 className={"text-xl"}>You are not authorized!</h2>
       <UiButton
-        variant={"outlined"}
+        variant={"primary"}
         onClick={() => {
           createTab(ADMIN_ROUTES.MAIN_URL);
         }}
       >
-        Manage Extension
+        Sign In
       </UiButton>
     </div>
   );
